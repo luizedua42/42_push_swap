@@ -3,7 +3,8 @@ CC = cc
 CCFLAGS = -g3 -Wall -Werror -Wextra 
 OBJ = $(SRC:%.c=%.o)
 
-SRC = ft_rots.c ft_swaps.c ft_pushes.c main.c ft_rev_rots.c
+SRC = ft_rots.c ft_swaps.c ft_pushes.c main.c ft_rev_rots.c \
+	push_swap.c tiny_sorts.c
 
 
 %.o: %.c
