@@ -6,42 +6,42 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:02:54 by luizedua          #+#    #+#             */
-/*   Updated: 2023/08/11 15:35:44 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/08/14 15:00:54 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_order(t_stack *stacks)
+int	check_order(int *stack, int len)
 {
 	int	i;
 	int	j;
 
 	j = 0;
-	while (j < stacks->alength - 1)
+	while (j < len - 1)
 	{
 		i = j + 1;
-		while (i < stacks->alength)
+		while (i < len)
 		{
-			if (stacks->stack_a[j] < stacks->stack_a[i])
+			if (stack[j] < stack[i])
 				i++;
 			else
-				return(0);
+				return (0);
 		}
 		j++;
 	}
 	return (1);
 }
 
-void sort_less(t_stack *stacks)
+void	sort_less(t_stack *stacks)
 {
-	if (!check_order(stacks))
+	if (!check_order(stacks->stack_a, stacks->alength))
 		sa(stacks);
 }
 
-void sort_three(t_stack *stacks)
+void	sort_three(t_stack *stacks)
 {
-	while (!check_order(stacks))
+	while (!check_order(stacks->stack_a, stacks->alength))
 	{
 		if (stacks->stack_a[0] > stacks->stack_a[1])
 			sa(stacks);
@@ -50,20 +50,45 @@ void sort_three(t_stack *stacks)
 	}
 }
 
-void sort_fiveish(t_stack *stacks)
+void	sort_four(t_stack *stacks)
 {
-	if (stacks->alength == 4)
+	int	i;
+
+	i = 0;
+	if (!check_order(stacks->stack_a, stacks->radix->stack_size))
 	{
-		return ;
-	}
-	if(stacks->alength == 5)
-	{
-		if (!check_order(stacks))
+		while (i < stacks->alength)
 		{
-			pb(stacks);
-			pb(stacks);
-			sort_three(stacks);
-			
+			if (stacks->stack_a[0] == 0)
+				pb(stacks);
+			else
+				ra(stacks);
+			i++;
 		}
+		sort_three(stacks);
+		pa(stacks);
+	}
+}
+
+void	sort_five(t_stack *stacks)
+{
+	int	i;
+
+	if (!check_order(stacks->stack_a, stacks->alength))
+	{
+		i = 0;
+		while (i < stacks->alength)
+		{
+			if (stacks->stack_a[0] <= 1)
+				pb(stacks);
+			else
+				ra(stacks);
+			i++;
+		}
+		sort_three(stacks);
+		if (check_order(stacks->stack_b, stacks->blength))
+			sb(stacks);
+		pa(stacks);
+		pa(stacks);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:46:54 by luizedua          #+#    #+#             */
-/*   Updated: 2023/08/11 14:58:30 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/08/14 14:59:24 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,24 @@ static int	get_period(int period)
 	return (n_period);
 }
 
-// static void	little_sort(t_stack *stacks)
-// {
-// 	if (stacks->alength < 3)
-// 		sort_less(stacks);
-// 	else if (stacks->alength == 3)
-// 		sort_three(stacks);
-// 	else
-// 		sort_fiveish(stacks);
-// }
+static void	little_sort(t_stack *stacks, int len)
+{
+	if (len < 3)
+		sort_less(stacks);
+	else if (len == 3)
+		sort_three(stacks);
+	else if (len == 4)
+		sort_four(stacks);
+	else
+		sort_five(stacks);
+}
 
 void	push_swap(t_stack *stacks, t_radix *radix)
 {
 	radix->stack_size = stacks->alength;
-	if (radix->stack_size == 5)
+	if (radix->stack_size <= 5)
 	{
-		sort_fiveish (stacks);
+		little_sort (stacks, radix->stack_size);
 		return ;
 	}
 	radix->bit_period = 0;
