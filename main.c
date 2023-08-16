@@ -6,14 +6,14 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 14:38:34 by luizedua          #+#    #+#             */
-/*   Updated: 2023/08/11 12:20:48 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/08/15 16:04:40 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-static void init_stacks(t_stack *stacks, char **args, int size)
+static void	init_stacks(t_stack *stacks, char **args, int size)
 {
 	int	c;
 	int	i;
@@ -35,11 +35,11 @@ static void init_stacks(t_stack *stacks, char **args, int size)
 int	main(int argc, char *argv[])
 {
 	t_stack	stacks;
-	t_radix radix;
-	int *aux;
+	t_radix	radix;
+	int		*aux;
 
 	aux = 0;
-	init_stacks(&stacks, argv,argc);
+	init_stacks(&stacks, argv, argc);
 	aux = normalize(&stacks);
 	free(stacks.stack_a);
 	stacks.stack_a = aux;

@@ -1,18 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/15 16:01:41 by luizedua          #+#    #+#             */
+/*   Updated: 2023/08/15 16:03:04 by luizedua         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 //INCLUDES
 # include "libft/libft.h"
 
 //Stack_struct
-typedef struct s_stack
-{
-	int	*stack_a;
-	int	*stack_b;
-	int	alength;
-	int	blength;
-}	t_stack;
-
 typedef struct s_radix
 {
 	int	bit_period;
@@ -20,6 +24,15 @@ typedef struct s_radix
 	int	digit;
 	int	stack_size;
 }	t_radix;
+
+typedef struct s_stack
+{
+	int		*stack_a;
+	int		*stack_b;
+	int		alength;
+	int		blength;
+	t_radix	*radix;
+}	t_stack;
 
 //functions
 void	sa(t_stack *stacks);
@@ -34,10 +47,10 @@ void	rra(t_stack *stacks);
 void	rrb(t_stack *stacks);
 void	rrr(t_stack *stacks);
 void	sort_less(t_stack *stacks);
+void	sort_four(t_stack *stacks);
+void	sort_five(t_stack *stacks);
 void	sort_three(t_stack *stacks);
 int		*normalize(t_stack *stacks);
-void	sort_fiveish(t_stack *stacks);
 void	push_swap(t_stack *stacks, t_radix *radix);
-
 
 #endif

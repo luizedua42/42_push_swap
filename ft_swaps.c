@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:28:47 by luizedua          #+#    #+#             */
-/*   Updated: 2023/08/11 13:17:12 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/08/15 16:01:57 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	sb(t_stack *stacks)
 		return ;
 	ft_swap(stacks->stack_b);
 	write(1, "sb\n", 3);
-
 }
 
 void	ss(t_stack *stacks)
@@ -47,5 +46,4 @@ void	ss(t_stack *stacks)
 	ft_swap(stacks->stack_a);
 	ft_swap(stacks->stack_b);
 	write(1, "ss\n", 3);
-
 }
