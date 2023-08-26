@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:02:54 by luizedua          #+#    #+#             */
-/*   Updated: 2023/08/15 16:01:12 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/08/24 16:07:02 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ void	sort_three(t_stack *stacks)
 {
 	while (!check_order(stacks->stack_a, stacks->alength))
 	{
-		if (stacks->stack_a[0] > stacks->stack_a[1])
+		if (stacks->stack_a[0] == 2)
+			ra(stacks);
+		else if (stacks->stack_a[0] > stacks->stack_a[1])
 			sa(stacks);
 		else
 			rra(stacks);
@@ -64,8 +66,7 @@ void	sort_four(t_stack *stacks)
 				pb(stacks);
 				break ;
 			}
-			else
-				ra(stacks);
+			ra(stacks);
 			i++;
 		}
 		sort_three(stacks);

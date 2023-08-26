@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 14:38:34 by luizedua          #+#    #+#             */
-/*   Updated: 2023/08/16 14:22:37 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/08/20 16:23:09 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] != '\0' || s2[i] != '\0')
@@ -23,7 +23,7 @@ static int	ft_strcmp(char *s1, char *s2)
 		if (s1[i] == s2[i])
 			i++;
 		else
-			return(1);
+			return (1);
 	}
 	return (0);
 }
@@ -56,12 +56,26 @@ int	arg_checker(char **args, int argc)
 	while (i <= argc - 2)
 	{
 		j = i + 1;
-		while (j <= argc -1)
+		while (j <= argc - 1)
 		{
 			if (ft_strcmp(args[i], args[j]) == 0)
 				return (1);
 			j++;
 		}
+		i++;
+	}
+	return (0);
+}
+
+int	alpha_checker(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (ft_isalpha(s[i]))
+			return (1);
 		i++;
 	}
 	return (0);
@@ -74,7 +88,9 @@ int	main(int argc, char *argv[])
 	int		*aux;
 
 	aux = 0;
-	if (arg_checker(argv, argc) == 1)
+	if (argc <= 2)
+		return (2);
+	if (checker_checker(argv, argc))
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (1);
@@ -83,7 +99,8 @@ int	main(int argc, char *argv[])
 	aux = normalize(&stacks);
 	free(stacks.stack_a);
 	stacks.stack_a = aux;
-	push_swap(&stacks, &radix);
+	if (!check_order(stacks.stack_a, stacks.alength))
+		push_swap(&stacks, &radix);
 	free(stacks.stack_a);
 	free(stacks.stack_b);
 	return (0);

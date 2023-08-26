@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 10:22:10 by luizedua          #+#    #+#             */
-/*   Updated: 2023/08/15 16:03:30 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/08/24 16:35:53 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void	ft_rev_rot(int *a, int len)
 	int	i;
 	int	temp;
 
-	i = len;
-	temp = a[i - 1];
+	i = len - 1 ;
+	temp = a[i];
 	while (i > 0)
 	{
 		a[i] = a[i - 1];

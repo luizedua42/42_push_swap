@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:39:18 by luizedua          #+#    #+#             */
-/*   Updated: 2023/07/16 17:51:38 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/08/24 16:37:51 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <string.h>
 //mandatory
-int		ft_atoi(const char *nptr);
+ssize_t	ft_atoi(const char *nptr);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);

@@ -6,13 +6,14 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 16:01:41 by luizedua          #+#    #+#             */
-/*   Updated: 2023/08/15 16:03:04 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/08/24 16:35:09 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
+# define MAX_INT 2147483647
+# define MIN_INT -2147483648
 //INCLUDES
 # include "libft/libft.h"
 
@@ -46,11 +47,15 @@ void	pb(t_stack *stacks);
 void	rra(t_stack *stacks);
 void	rrb(t_stack *stacks);
 void	rrr(t_stack *stacks);
+int		alpha_checker(char *s);
 void	sort_less(t_stack *stacks);
 void	sort_four(t_stack *stacks);
 void	sort_five(t_stack *stacks);
 void	sort_three(t_stack *stacks);
 int		*normalize(t_stack *stacks);
+int		check_order(int *stack, int len);
+int		arg_checker(char **args, int argc);
+int		checker_checker(char **argv, int argc);
 void	push_swap(t_stack *stacks, t_radix *radix);
 
 #endif

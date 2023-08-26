@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:46:54 by luizedua          #+#    #+#             */
-/*   Updated: 2023/08/14 14:59:24 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/08/24 16:38:48 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,27 @@ int	*normalize(t_stack *stacks)
 		j++;
 	}
 	return (aux);
+}
+
+int	checker_checker(char **argv, int argc)
+{
+	int	i;
+
+	i = 1;
+	while (i <= argc - 1)
+	{
+		if (ft_atoi(argv[i]) > MAX_INT || ft_atoi(argv[i]) < MIN_INT)
+			return (1);
+		i++;
+	}
+	i = 1;
+	if (arg_checker(argv, argc) == 1)
+		return (1);
+	while (i <= argc - 1)
+	{
+		if (alpha_checker(argv[i]))
+			return (1);
+		i++;
+	}
+	return (0);
 }
