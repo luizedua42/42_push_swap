@@ -6,13 +6,13 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 09:45:02 by luizedua          #+#    #+#             */
-/*   Updated: 2023/08/24 16:37:46 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:47:30 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-ssize_t ft_atoi(const char *nptr)
+ssize_t	ft_atoi(const char *nptr)
 {
 	ssize_t	res;
 	int		sign;
