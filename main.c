@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 14:38:34 by luizedua          #+#    #+#             */
-/*   Updated: 2023/08/26 18:26:15 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/09/12 19:24:46 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-static void	init_stacks(t_stack *stacks, char **args, int size)
+static int	init_stacks(t_stack *stacks, char **args, int size)
 {
 	int	c;
 	int	i;
@@ -45,6 +45,15 @@ static void	init_stacks(t_stack *stacks, char **args, int size)
 		c++;
 		i++;
 	}
+	i = -1;
+	while (++i < stacks->alength - 1)
+	{
+		c = i;
+		while (++c < stacks->alength)
+			if (stacks->stack_a[i] == stacks->stack_a[c])
+				return (1);
+	}
+	return (0);
 }
 
 int	arg_checker(char **args, int argc)
@@ -72,9 +81,15 @@ int	alpha_checker(char *s)
 	int	i;
 
 	i = 0;
+	if (s[i] == '\0')
+		return (2);
+	if ((s[0] == '-' || s[0] == '+') && s[1] == '\0')
+		return (2);
+	if (s[0] == '-' || s[0] == '+')
+		i++;
 	while (s[i] != '\0')
 	{
-		if (ft_isalpha(s[i]))
+		if (!ft_isdigit(s[i]) || ft_isspace(s[i]))
 			return (1);
 		i++;
 	}
@@ -88,14 +103,13 @@ int	main(int argc, char *argv[])
 	int		*aux;
 
 	aux = 0;
-	if (argc <= 2)
+	if (argc < 2)
 		return (2);
-	if (checker_checker(argv, argc))
+	if (checker_checker(argv, argc) || init_stacks(&stacks, argv, argc))
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
-	init_stacks(&stacks, argv, argc);
 	aux = normalize(&stacks);
 	free(stacks.stack_a);
 	stacks.stack_a = aux;
