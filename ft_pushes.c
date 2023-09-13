@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 11:05:22 by luizedua          #+#    #+#             */
-/*   Updated: 2023/08/11 11:39:49 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/09/12 21:41:41 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,11 @@ void	pb(t_stack *stacks)
 	stacks->alength--;
 	stacks->blength++;
 	write(1, "pb\n", 3);
+}
+
+int	ft_free(t_stack stacks)
+{
+	free(stacks.stack_a);
+	free(stacks.stack_b);
+	return (1);
 }

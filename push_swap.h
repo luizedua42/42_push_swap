@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 16:01:41 by luizedua          #+#    #+#             */
-/*   Updated: 2023/09/10 22:01:23 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/09/12 21:41:50 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	rra(t_stack *stacks);
 void	rrb(t_stack *stacks);
 void	rrr(t_stack *stacks);
 int		alpha_checker(char *s);
+int		ft_free(t_stack stacks);
 void	sort_less(t_stack *stacks);
 void	sort_four(t_stack *stacks);
 void	sort_five(t_stack *stacks);
@@ -57,5 +58,4 @@ int		check_order(int *stack, int len);
 int		arg_checker(char **args, int argc);
 int		checker_checker(char **argv, int argc);
 void	push_swap(t_stack *stacks, t_radix *radix);
-
 #endif
