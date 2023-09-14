@@ -2,12 +2,12 @@ NAME = push_swap
 CC = cc
 CCFLAGS = -g3 -Wall -Werror -Wextra 
 OBJ = $(SRC:%.c=%.o)
+HDR = push_swap.h
 
 SRC = ft_rots.c ft_swaps.c ft_pushes.c main.c ft_rev_rots.c \
 	push_swap.c tiny_sorts.c
 
-
-%.o: %.c
+%.o: %.c $(HDR)
 	$(CC) $(CCFLAGS) -c $<
 
 all: $(NAME) 
