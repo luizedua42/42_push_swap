@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 14:38:34 by luizedua          #+#    #+#             */
-/*   Updated: 2023/09/12 21:42:38 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/09/13 23:57:11 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int	main(int argc, char *argv[])
 	if (init_stacks(&stacks, argv, argc))
 	{
 		ft_putstr_fd("Error\n", 2);
-		return(ft_free(stacks));
+		return (ft_free(stacks));
 	}
 	aux = normalize(&stacks);
 	free(stacks.stack_a);
