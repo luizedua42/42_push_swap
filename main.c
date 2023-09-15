@@ -6,7 +6,7 @@
 /*   By: luizedua <luizedua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 14:38:34 by luizedua          #+#    #+#             */
-/*   Updated: 2023/09/14 18:00:28 by luizedua         ###   ########.fr       */
+/*   Updated: 2023/09/15 11:29:49 by luizedua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,5 @@ int	main(int argc, char *argv[])
 	if (!check_order(stacks.stack_a, stacks.alength))
 		push_swap(&stacks, &radix);
 	ft_free(stacks);
-	return (0);
+	return(0);
 }
